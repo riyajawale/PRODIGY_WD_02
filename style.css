@@ -6,25 +6,134 @@
   font-family: Arial, sans-serif;
 }
 
-/* ===== BODY ===== */
+/* ===== BODY (LIGHT MODE DEFAULT) ===== */
 body {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #6d1b1b, #8b1e1e);
+  transition: background 0.3s ease;
 }
 
-/* ===== MAIN CONTAINER ===== */
+/* ===== CONTAINER ===== */
 .container {
-  background: rgba(255, 255, 255, 0.97);
+  background: white;
   padding: 30px;
   border-radius: 16px;
   width: 320px;
   text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* ===== TITLE ===== */
 .container h1 {
+  margin-bottom: 10px;
+  color: #6d1b1b;
+}
+
+/* ===== DARK MODE TOGGLE BUTTON ===== */
+.dark-toggle {
+  background: none;
+  border: 1px solid #6d1b1b;
+  color: #6d1b1b;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
   margin-bottom: 15px;
+}
+
+/* ===== DISPLAY ===== */
+.display {
+  font-size: 2.8rem;
+  margin: 20px 0;
+  font-family: "Courier New", monospace;
+  letter-spacing: 3px;
+  color: #6d1b1b;
+}
+
+/* ===== BUTTONS ===== */
+.buttons button {
+  margin: 6px;
+  padding: 10px 15px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+/* Button Colors */
+.buttons button:nth-child(1) { background-color: #7b1f1f; } /* Start */
+.buttons button:nth-child(2) { background-color: #b03a2e; } /* Pause */
+.buttons button:nth-child(3) { background-color: #922b21; } /* Reset */
+.buttons button:nth-child(4) { background-color: #641e16; } /* Lap */
+
+.buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.buttons button:active {
+  transform: scale(0.95);
+}
+
+/* ===== LAP LIST ===== */
+#laps {
+  margin-top: 15px;
+  text-align: left;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-left: 0;
+}
+
+#laps li {
+  list-style: none;
+  background: #f9ebea;
+  padding: 6px 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+  color: #6d1b1b;
+}
+
+/* ===== DARK MODE STYLES ===== */
+body.dark {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+}
+
+body.dark .container {
+  background: #1f1f1f;
+  color: white;
+}
+
+body.dark h1,
+body.dark .display {
+  color: white;
+}
+
+body.dark .dark-toggle {
+  border-color: white;
+  color: white;
+}
+
+body.dark #laps li {
+  background: #333;
+  color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}
