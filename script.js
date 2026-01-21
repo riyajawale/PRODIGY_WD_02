@@ -49,4 +49,7 @@ function lap() {
   lapTime.innerText = document.getElementById("display").innerText;
   document.getElementById("laps").appendChild(lapTime);
 }
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
 
